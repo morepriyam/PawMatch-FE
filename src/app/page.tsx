@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import Navbar from "@/components/ui/global/navbar";
 import { Input } from "@/components/ui/input";
 import { Search, Heart, MessageCircle, PawPrint } from "lucide-react";
 import Link from "next/link";
@@ -6,38 +7,6 @@ import Link from "next/link";
 export default function Component() {
   return (
     <div className="flex flex-col min-h-screen">
-      <header className="px-4 lg:px-6 h-14 flex items-center">
-        <Link className="flex items-center justify-center" href="#">
-          <PawPrint className="h-6 w-6" />
-          <span className="ml-2 text-2xl font-bold">PawMatch</span>
-        </Link>
-        <nav className="ml-auto flex gap-4 sm:gap-6">
-          <Link
-            className="text-sm font-medium hover:underline underline-offset-4"
-            href="#"
-          >
-            Find a Pet
-          </Link>
-          <Link
-            className="text-sm font-medium hover:underline underline-offset-4"
-            href="#"
-          >
-            How It Works
-          </Link>
-          <Link
-            className="text-sm font-medium hover:underline underline-offset-4"
-            href="#"
-          >
-            About Us
-          </Link>
-          <Link
-            className="text-sm font-medium hover:underline underline-offset-4"
-            href="#"
-          >
-            Login
-          </Link>
-        </nav>
-      </header>
       <main className="flex-1">
         <section className="w-full py-12 md:py-24 lg:py-32 xl:py-48 bg-[url('https://cdn.shopify.com/s/files/1/0265/6157/7032/files/Black_and_Brown_Dog_Breeds_14b2f8b6-4fee-4d93-b9f7-be7bc415e597.jpg?v=1696310874')] bg-cover bg-center">
           <div className="container px-4 md:px-6">
@@ -169,19 +138,6 @@ export default function Component() {
           </div>
         </section>
       </main>
-      <footer className="flex flex-col gap-2 sm:flex-row py-6 w-full shrink-0 items-center px-4 md:px-6 border-t">
-        <p className="text-xs text-muted-foreground">
-          © 2024 PawMatch. All rights reserved.
-        </p>
-        <nav className="sm:ml-auto flex gap-4 sm:gap-6">
-          <Link className="text-xs hover:underline underline-offset-4" href="#">
-            Terms of Service
-          </Link>
-          <Link className="text-xs hover:underline underline-offset-4" href="#">
-            Privacy
-          </Link>
-        </nav>
-      </footer>
     </div>
   );
 }
