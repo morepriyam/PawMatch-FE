@@ -1,19 +1,19 @@
-import React from 'react'
-import { Card, CardContent } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import Link from 'next/link'
-import { PawPrint, Heart } from 'lucide-react'
-import Image from "next/image"
+import React from 'react';
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import Link from 'next/link';
+import { PawPrint, Heart } from 'lucide-react';
+import Image from "next/image";
 
 interface BreedCardProps {
-  breed: string
-  imageUrl: string
-  description: string
+  breed: string;
+  imageUrl: string;
+  description: string;
 }
 
 export default function BreedCard({ breed, imageUrl, description }: BreedCardProps) {
   return (
-    <Link href={`/breed/${breed.toLowerCase()}`} passHref>
+    <Link href={`/breeds/${breed.toLowerCase()}`} passHref>
       <Card className="overflow-hidden cursor-pointer">
         <div className="relative h-48">
           <Image
