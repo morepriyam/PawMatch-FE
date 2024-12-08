@@ -1,10 +1,12 @@
 "use client";
-import React, { useEffect, useState } from 'react';
-import { fetchBreeds } from '../../lib/breeds';
-import dynamic from 'next/dynamic';
+import React, { useEffect, useState } from "react";
+import { fetchBreeds } from "../../lib/breeds";
+import dynamic from "next/dynamic";
 
 // Dynamically import BreedCard only on the client side
-const BreedCard = dynamic(() => import("../../components/ui/breedCard"), { ssr: false });
+const BreedCard = dynamic(() => import("../../components/ui/breedCard"), {
+  ssr: false,
+});
 
 export default function BreedsPage() {
   const [pets, setPets] = useState<any[]>([]); // Update state to hold pet objects, not just breed names
@@ -16,15 +18,15 @@ export default function BreedsPage() {
         const petsList = await fetchBreeds();
         // Filter out duplicates based on breed name
         const uniqueBreeds = petsList.reduce((acc: any[], pet) => {
-          if (!acc.some(existingPet => existingPet.breed === pet.breed)) {
+          if (!acc.some((existingPet) => existingPet.breed === pet.breed)) {
             acc.push(pet);
           }
           return acc;
         }, []);
-        
+
         setPets(uniqueBreeds || []);
       } catch (error) {
-        console.error('Error fetching pets:', error);
+        console.error("Error fetching pets:", error);
       } finally {
         setLoading(false);
       }
@@ -39,7 +41,7 @@ export default function BreedsPage() {
         <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-center mb-12">
           Popular Dog Breeds
         </h2>
-        
+
         {loading ? (
           <p className="text-center">Loading...</p>
         ) : (
@@ -47,11 +49,11 @@ export default function BreedsPage() {
             {Array.isArray(pets) && pets.length > 0 ? (
               pets.map((pet) => (
                 <BreedCard
-                key={pet.id}
-                breed={pet.breed}
-                imageUrl={pet.petImage?.imageUrl || ''}  
-                description={pet.description || ''}   
-              />
+                  key={pet.id}
+                  breed={pet.breed}
+                  imageUrl={pet.petImage?.imageUrl || ""}
+                  description={pet.description || ""}
+                />
               ))
             ) : (
               <p className="text-center col-span-full">No pets available.</p>
