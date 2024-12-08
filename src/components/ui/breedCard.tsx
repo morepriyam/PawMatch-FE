@@ -13,7 +13,7 @@ interface BreedCardProps {
 
 export default function BreedCard({ breed, imageUrl, description }: BreedCardProps) {
   return (
-    <Link href={`/breeds/${breed.toLowerCase()}`} passHref>
+    <Link href={`/breeds/${encodeURIComponent(breed)}`} passHref>
       <Card className="overflow-hidden cursor-pointer">
         <div className="relative h-48">
           <Image

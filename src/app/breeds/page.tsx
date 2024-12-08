@@ -14,7 +14,15 @@ export default function BreedsPage() {
     const fetchPetsData = async () => {
       try {
         const petsList = await fetchBreeds();
-        setPets(petsList || []);
+        // Filter out duplicates based on breed name
+        const uniqueBreeds = petsList.reduce((acc: any[], pet) => {
+          if (!acc.some(existingPet => existingPet.breed === pet.breed)) {
+            acc.push(pet);
+          }
+          return acc;
+        }, []);
+        
+        setPets(uniqueBreeds || []);
       } catch (error) {
         console.error('Error fetching pets:', error);
       } finally {
