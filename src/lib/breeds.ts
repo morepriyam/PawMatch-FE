@@ -21,7 +21,8 @@
 
 export async function fetchPetsByBreed(breed: string): Promise<any[]> {
   try {
-      const response = await fetch(`http://localhost:8080/api/v1/Pets`);
+    const decodedBreed = decodeURIComponent(breed);
+      const response = await fetch(`http://localhost:8080/api/v1/Pets/breed/${decodedBreed}`);
       if (!response.ok) throw new Error('Failed to fetch pets by breed');
       
       const data = await response.json();
