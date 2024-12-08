@@ -8,20 +8,6 @@ export default function Footer() {
 				<p className="text-xs text-muted-foreground mb-2 sm:mb-0">
 					© 2024 PawMatch. All rights reserved.
 				</p>
-				<nav className="flex gap-4">
-					<Link
-						className="text-xs text-muted-foreground hover:text-foreground transition-colors"
-						href="#"
-					>
-						Terms of Service
-					</Link>
-					<Link
-						className="text-xs text-muted-foreground hover:text-foreground transition-colors"
-						href="#"
-					>
-						Privacy
-					</Link>
-				</nav>
 			</div>
 		</footer>
 	);

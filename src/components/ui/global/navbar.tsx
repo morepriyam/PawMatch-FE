@@ -22,6 +22,13 @@ export default function Navbar() {
 				>
 					Breeds
 				</Link>
+
+				<Link
+					className="text-sm font-medium hover:underline underline-offset-4"
+					href="/csvupload"
+				>
+					Add a Pet
+				</Link>
 			</nav>
 		</header>
 	);
