@@ -1,5 +1,3 @@
-// app/breeds/page.tsx
-
 "use client";
 import React, { useEffect, useState } from 'react';
 import { fetchBreeds } from '../../lib/breeds';
@@ -9,22 +7,22 @@ import dynamic from 'next/dynamic';
 const BreedCard = dynamic(() => import("../../components/ui/breedCard"), { ssr: false });
 
 export default function BreedsPage() {
-  const [breeds, setBreeds] = useState<string[]>([]);
+  const [pets, setPets] = useState<any[]>([]); // Update state to hold pet objects, not just breed names
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const fetchBreedsData = async () => {
+    const fetchPetsData = async () => {
       try {
-        const breedsList = await fetchBreeds();
-        setBreeds(breedsList || []);
+        const petsList = await fetchBreeds();
+        setPets(petsList || []);
       } catch (error) {
-        console.error('Error fetching breeds:', error);
+        console.error('Error fetching pets:', error);
       } finally {
         setLoading(false);
       }
     };
 
-    fetchBreedsData();
+    fetchPetsData();
   }, []);
 
   return (
@@ -38,17 +36,17 @@ export default function BreedsPage() {
           <p className="text-center">Loading...</p>
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-            {Array.isArray(breeds) && breeds.length > 0 ? (
-              breeds.map((breed) => (
+            {Array.isArray(pets) && pets.length > 0 ? (
+              pets.map((pet) => (
                 <BreedCard
-                  key={breed}
-                  breed={breed}
-                  imageUrl={''} 
-                  description={''} 
+                  key={pet.id}
+                  breed={pet.breed}
+                  imageUrl={pet.petImage?.imageUrl || ''}  // Use the pet's image URL
+                  description={pet.description || ''}    // Use the pet's description
                 />
               ))
             ) : (
-              <p className="text-center col-span-full">No breeds available.</p>
+              <p className="text-center col-span-full">No pets available.</p>
             )}
           </div>
         )}
