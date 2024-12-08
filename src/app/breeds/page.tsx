@@ -47,11 +47,11 @@ export default function BreedsPage() {
             {Array.isArray(pets) && pets.length > 0 ? (
               pets.map((pet) => (
                 <BreedCard
-                  key={pet.id}
-                  breed={pet.breed}
-                  imageUrl={pet.petImage?.imageUrl || ''}  // Use the pet's image URL
-                  description={pet.description || ''}    // Use the pet's description
-                />
+                key={pet.id}
+                breed={pet.breed}
+                imageUrl={pet.petImage?.imageUrl || ''}  
+                description={pet.description || ''}   
+              />
               ))
             ) : (
               <p className="text-center col-span-full">No pets available.</p>
