@@ -7,7 +7,7 @@ export default function Component() {
   return (
     <div className="flex flex-col min-h-screen">
       <main className="flex-1">
-        <section className="w-full py-12 md:py-24 lg:py-32 xl:py-48 bg-[url('https://cdn.discordapp.com/attachments/1303123407814000713/1315108778869526619/chewy-3cAMUE3YAO8-unsplash.jpg?ex=675635fe&is=6754e47e&hm=936bc966797cc9db2814e88a0c05e7206e6a5408531f3f60fbab20eeef1850d9&')] bg-cover bg-center">
+        <section className="w-full py-12 md:py-24 lg:py-32 xl:py-48 bg-[url('https://idoxajd.sufydely.com/pawmatch_main.jpg')] bg-cover bg-center">
           <div className="container px-4 md:px-6">
             <div className="flex flex-col items-center space-y-4 text-center">
               <div className="space-y-2">
